@@ -1,0 +1,15 @@
+{
+  "name": "sniffer",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "noble": "^0.3.0",
+    "event-stream": "^3.1.1"
+  }
+}
