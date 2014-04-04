@@ -16,7 +16,7 @@ var sock = shoe(function (stream) {
   console.log('connection created');
   index++;
   streams[index] = stream;
-  stream.on('end', function () {
+  stream.on('close', function() {
     console.log('connection ended');
     delete streams[index];
   });
