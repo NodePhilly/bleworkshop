@@ -8,6 +8,7 @@ $().ready(function() {
   var stream = shoe('/state');
 
   stream.pipe(through(function (message) {
+    var message = JSON.parse(message);
     $stateReporter.html(message.state);
   })).pipe(stream);
 
