@@ -7,8 +7,8 @@ $().ready(function() {
   var $stateReporter = $('#state');
   var stream = shoe('/state');
 
-  stream.pipe(through(function (newState) {
-    $stateReporter.html(newState);
+  stream.pipe(through(function (message) {
+    $stateReporter.html(message.state);
   })).pipe(stream);
 
 });
