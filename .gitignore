@@ -1,3 +1,5 @@
 cloudapi/node_modules
 listener/node_modules
 sniffer/node_modules
+cloudapi/public/app.js
+*.swp

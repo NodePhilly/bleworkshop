@@ -1,0 +1,19 @@
+{
+  "name": "cloudapi",
+  "version": "0.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "install": "node_modules/.bin/browserify client.js -o public/app.js",
+    "build": "node_modules/.bin/browserify client.js -o public/app.js"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "sockjs": "~0.3.8",
+    "shoe": "0.0.15",
+    "browserify": "~3.38.0"
+  }
+}
