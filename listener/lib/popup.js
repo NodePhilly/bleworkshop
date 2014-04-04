@@ -9,7 +9,8 @@ var es = require('event-stream');
 module.exports = es.through(function write(data){
 
 
-  growl.normal.timeout(1000).notify('Announcement', data);
+  console.log("popping up an alert");
+  growl.normal.timeout(1000).notify('Announcement', "bryan is " + data);
 
 
 });
