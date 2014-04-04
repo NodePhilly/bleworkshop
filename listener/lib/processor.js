@@ -2,10 +2,10 @@ var es = require("event-stream");
 
 
 module.exports = es.through(function write(data){
-  console.log(data.toString('utf8'));
   
-  var event = data.toString('utf8');
+  var event = JSON.parse(data.toString('utf8'));
+  console.log(event);
       
-  this.emit('data', event);
+  this.emit('data', event.state);
 
 });
