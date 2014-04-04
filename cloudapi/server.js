@@ -26,7 +26,7 @@ var sock = shoe(function (stream) {
 app.post('/api/state', function(req, res) {
   console.log('Updating state information');
   for (i in streams) {
-    streams[i].write(req.body.state);
+    streams[i].write(req.body);
   }
   res.writeHead(201);
   res.end();
