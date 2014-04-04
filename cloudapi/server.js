@@ -13,18 +13,18 @@ var streams = {};
 var index = 0;
 
 var sock = shoe(function (stream) {
-  console.log('connection created');
+  console.log('Connection created');
   index++;
   streams[index] = stream;
   stream.on('close', function() {
-    console.log('connection ended');
+    console.log('Connection ended');
     delete streams[index];
   });
   stream.pipe(process.stdout, { end : false });
 });
 
 app.post('/api/state', function(req, res) {
-  console.log(req.body.state);
+  console.log('Updating state information');
   for (i in streams) {
     streams[i].write(req.body.state);
   }
