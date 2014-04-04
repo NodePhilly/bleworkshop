@@ -1,30 +1,11 @@
-var util = require('util');
-var EventEmitter = require('events').EventEmitter;
+var sockjs = require('sockjs-stream');
 
-function Subscriber(){
-
-  var self = this;
-  setTimeout(function(){
-    self.emit('event', {status: "near"});
+var stream = sockjs('ws://192.168.1.132:3000/state', function(){
+                 
+    console.log("sockjs connected");
+});
 
 
-  }, 2000);
-  
-  setTimeout(function(){
-    self.emit('event', {status: "away"});
+module.exports = stream;
 
-  }, 5000);
-
-
-
-}
-
-util.inherits(Subscriber, EventEmitter);
-
-
-//Exports a single instance of subscribe so that multiple listeners can bind to 
-//one subscription
-var instance = new Subscriber();
-
-module.exports = instance;
 
