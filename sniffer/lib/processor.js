@@ -17,6 +17,9 @@ module.exports = es.through(function write(data){
    *   services: null,
    *   state: 'disconnected' }
    */
+  var now = Date.now();
+  data.lastSeen = now;
+
   var self = this; 
   var old_rec = db.get(data.uuid);
 
@@ -37,6 +40,9 @@ module.exports = es.through(function write(data){
 
   if(old_rec){
     clearTimeout(old_rec.timerId);
+    var timeBetween = now - old_rec.lastSeen;
+
+    console.log('clearing timer, time between packets ' + timeBetween);
     //Create a new timer
 
   } else {
