@@ -52,6 +52,7 @@ module.exports = es.through(function write(data){
     data.estimateTimeout = estimateTimeout;
 
   }else{
+    data.estimateTimeout = TIMEOUT;
     data.history = [];
   }
 
