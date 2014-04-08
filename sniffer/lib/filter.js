@@ -20,6 +20,7 @@ module.exports = es.through(function write(data){
   
   if(data.uuid !== filtered) return;
 
+  // Pass data on to the next stream
   this.emit("data", data);
 
     

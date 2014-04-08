@@ -27,14 +27,15 @@ module.exports = es.through(function write(data){
     var timerObj = setTimeout(function(){
 
       console.log("timeout expired device has left");
-      // Change the state to away because the ble device hasnt been seen in a while
+      // Change the state to away because the ble device 
+      // hasnt been seen in a while
       data.state = "away";
       delete data.timeId;
       self.emit("data", data);
 
       // Remove the specific object from the database
       db.clear(data.uuid);
-    }, TIMEOUT);
+    }, data.estimateTimeout);
     return timerObj;
   };
 
